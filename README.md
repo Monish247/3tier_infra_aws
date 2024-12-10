@@ -6,7 +6,13 @@ This project demonstrates a hands-on implementation of a three-tier web architec
 ## Architecture Overview
 ![AWS Architecture - DrawIO](https://github.com/pandacloud1/AWS_Project1/assets/134182273/3e46931f-0802-48a7-b044-22cd2afde467)
 
-In this architecture, a public-facing Application Load Balancer forwards client traffic to our web tier EC2 instances. The web tier is running Nginx webservers that are configured to serve a React.js website and redirects our API calls to the application tier’s internal facing load balancer. The internal facing load balancer then forwards that traffic to the application tier, which is written in Node.js. The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to our web tier. Load balancing, health checks and autoscaling groups are created at each layer to maintain the availability of this architecture.
+In this architecture, a public-facing Application Load Balancer (ALB) forwards client traffic to our web tier EC2 instances. The web tier runs Nginx web servers configured to serve a React.jswebsite and redirect API calls to the application tier’s internal-facing load balancer. The internal-facing load balancer then forwards traffic to the application tier, which is built using Node.js.The application tier manipulates data in an Aurora MySQL multi-AZ database and returns it to the web tier. Load balancing, health checks, and auto-scaling groups are created at each layer to maintain the availability of this architecture.
+
+## Key Purposes:
+
+- High Availability: Ensured through the use of multi-AZ deployments, load balancing, and auto-scaling.
+- Enhanced Security: Achieved through Security Groups, IAM roles, and SSM Session Manager for secure access.
+- Fault Tolerance: Implemented with redundant components and multi-AZ setups to handle failures gracefully.
 
 ## Algorithm
 ### AWS PROJECT
